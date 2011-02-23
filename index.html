@@ -1,0 +1,50 @@
+<!--
+jAck: jQuery Application Coding Kit
+
+jQuery+Underscore.js Based MVC Library
+
+
+-->
+<!doctype html>
+<html>
+	<head>
+		<title>jAck: jQuery Application Coding Kit</title>
+	</head>
+	<body>
+		<h1>It's running!</h1>
+
+		<p>
+			<!-- Creating links -->
+			<a href="javascript:void(0);" onclick="Jack.go('/fatih/5');">Id : 5</a>
+			<a href="javascript:void(0);" onclick="Jack.go('/fatih/6');">Id : 6</a>
+		</p>
+		<div id="test">
+
+		</div>
+	</body>
+	<!-- Loading base libraries -->
+	<script type="text/javascript" src="Jack/Core/Vendor/xregexp-min.js"></script>
+	<script type="text/javascript" src="Jack/Core/Vendor/underscore.js"></script>
+	<script type="text/javascript" src="Jack/Core/Vendor/jquery.js"></script>
+
+	<!-- Loading Jack libraries -->
+	<script type="text/javascript" src="Jack/Core/Jack.js"></script>
+	<script type="text/javascript" src="Jack/Autoloader.js"></script>
+
+	<script type="text/javascript">
+		/**
+		 * Application start on DOM load.
+		 */
+		(function($){
+			$(document).ready(function() {
+				try {
+					//Create boostrap instance and initialize.
+					Jack.getInstance('App.Bootstrap').init();
+				} catch (e) {
+					//Log to console on error
+					console.log('An error occured while starting app: '+e.message);
+				}
+			});
+		})(jQuery);
+	</script>
+</html>
