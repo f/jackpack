@@ -12,6 +12,8 @@
 		 */
 		autoloaded: [],
 
+		basePath: '',
+
 		loadClass : function(class_names)
 		{
 			var self = Jack.Autoloader;
@@ -24,7 +26,10 @@
 					return;
 
 				var class_route = class_name.replace(/\./g, '/');
-				var class_path = class_route + '.js';
+				if (self.basePath.charAt(self.basePath.length-1) != '/')
+					self.basePath+='/';
+
+				var class_path = self.basePath+class_route + '.js';
 				var script = $('<script/>', {type: 'text/javascript', src: class_path});
 				$(document.body).append(script);
 
@@ -32,6 +37,10 @@
 				self.autoloaded = _.uniq(self.autoloaded);
 
 			}
+		},
+
+		setBasePath: function(base) {
+			this.basePath = base;
 		}
 	}
 

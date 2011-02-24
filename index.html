@@ -9,27 +9,32 @@ jQuery+Underscore.js Based MVC Library
 <html>
 	<head>
 		<title>jAck: jQuery Application Coding Kit</title>
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 	<body>
-		<h1>It's running!</h1>
+		<div class="main">
+			<h1>Jack: <em>jQuery Application Coding Kit</em></h1>
 
-		<p>
-			<!-- Creating links -->
-			<a href="javascript:void(0);" onclick="Jack.go('/fatih/5');">Id : 5</a>
-			<a href="javascript:void(0);" onclick="Jack.go('/fatih/6');">Id : 6</a>
-		</p>
-		<div id="test">
+			<ul class="menu">
+				<li><a href="javascript:void(0);" onclick="Jack.go('/about');">About</a></li>
+				<li><a href="javascript:void(0);" onclick="Jack.go('/download');">Download</a></li>
+				<li><a href="javascript:void(0);" onclick="Jack.go('/start');">Getting Started</a></li>
+				<li><a href="javascript:void(0);" onclick="Jack.go('/documentation');">Documentation</a></li>
+			</ul>
 
+			<div class="content">
+				asd
+			</div>
 		</div>
 	</body>
 	<!-- Loading base libraries -->
-	<script type="text/javascript" src="Jack/Core/Vendor/xregexp-min.js"></script>
-	<script type="text/javascript" src="Jack/Core/Vendor/underscore.js"></script>
-	<script type="text/javascript" src="Jack/Core/Vendor/jquery.js"></script>
+	<script type="text/javascript" src="js/Jack/Core/Vendor/xregexp-min.js"></script>
+	<script type="text/javascript" src="js/Jack/Core/Vendor/underscore.js"></script>
+	<script type="text/javascript" src="js/Jack/Core/Vendor/jquery.js"></script>
 
 	<!-- Loading Jack libraries -->
-	<script type="text/javascript" src="Jack/Core/Jack.js"></script>
-	<script type="text/javascript" src="Jack/Autoloader.js"></script>
+	<script type="text/javascript" src="js/Jack/Core/Jack.js"></script>
+	<script type="text/javascript" src="js/Jack/Autoloader.js"></script>
 
 	<script type="text/javascript">
 		/**
@@ -39,6 +44,7 @@ jQuery+Underscore.js Based MVC Library
 			$(document).ready(function() {
 				try {
 					//Create boostrap instance and initialize.
+					Jack.Autoloader.setBasePath('js');
 					Jack.getInstance('App.Bootstrap').init();
 				} catch (e) {
 					//Log to console on error
