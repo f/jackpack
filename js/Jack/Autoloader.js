@@ -26,10 +26,8 @@
 					return;
 
 				var class_route = class_name.replace(/\./g, '/');
-				if (self.basePath.charAt(self.basePath.length-1) != '/')
-					self.basePath+='/';
 
-				var class_path = self.basePath+class_route + '.js';
+				var class_path = self.getBasePath()+class_route + '.js';
 				var script = $('<script/>', {type: 'text/javascript', src: class_path});
 				$(document.body).append(script);
 
@@ -37,6 +35,13 @@
 				self.autoloaded = _.uniq(self.autoloaded);
 
 			}
+		},
+
+		getBasePath: function()
+		{
+			if (this.basePath.charAt(this.basePath.length - 1) != '/')
+				this.basePath += '/';
+			return this.basePath;
 		},
 
 		setBasePath: function(base) {

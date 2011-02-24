@@ -41,7 +41,12 @@
 
 		setupLayout: function()
 		{
-			Jack.Registry.set('App.Layout', $('div.main'));
+			var layout = $('div.content');
+			layout.ajaxStart(function() {
+				$(this).html('Loading...');
+			});
+
+			Jack.Registry.set('App.Layout', layout);
 		}
 	});
 

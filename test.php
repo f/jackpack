@@ -1,3 +1,3 @@
 <?php
 
-echo 'bu server <%= id %>';
+echo 'bu server';

@@ -23,7 +23,7 @@
 				return;
 			}
 
-			$.get('App/View/'+view+'.html', null, function(data) {
+			$.get(Jack.Autoloader.getBasePath()+'App/View/'+view+'.html', null, function(data) {
 				Jack.View.templateCache[view] = data;
 				onsuccess(_.template(data, self.vars));
 			});
