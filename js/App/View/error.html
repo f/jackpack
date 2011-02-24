@@ -17,7 +17,9 @@
 		<p style="text-align: center;">
 			Press any link to continue on top<span id="pointer">_</span>
 			<script type="text/javascript">
-				setInterval(function(){
+				var interval;
+				clearInterval(interval);
+				interval = setInterval(function(){
 					if ($('#pointer').html()=='&nbsp;')
 					{
 						$('#pointer').html('_');
