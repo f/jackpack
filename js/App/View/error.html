@@ -1,1 +1,36 @@
-<h2>An error occured: <%= error.code %></h2>
+<h1>Error with the code "<%= error.code %>"?!?</h1>
+<p>
+	I got some error from Jack!. But.. I wrote it nearly bugfree :(
+</p>
+<div class="bluescreen">
+	<div class="title"><span>ERROR <%= error.code %></span></div>
+	<br />
+	<div>
+		<p>
+			You can see this is an error screen. And something wrong with the application.
+			<ul>
+				<li>You can wait or restart your computer.</li>
+				<li>Press CTRL+ALT+DEL to restart your computer.</li>
+				<li>If you are using Internet Explorer 6, it is a miracle that you reached here.</li>
+			</ul>
+		</p>
+		<p style="text-align: center;">
+			Press any link to continue on top<span id="pointer">_</span>
+			<script type="text/javascript">
+				setInterval(function(){
+					if ($('#pointer').html()=='&nbsp;')
+					{
+						$('#pointer').html('_');
+					} else {
+						$('#pointer').html('&nbsp;');
+					}
+				}, 500);
+			</script>
+			<br />
+			<br />
+		</p>
+		<p>
+			<small>You don't have to restart your computer, just kidding :) Respect Windows.</small>
+		</p>
+	</div>
+</div>

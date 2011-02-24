@@ -6,15 +6,24 @@ body {
 	background-color: #E0EAFC;
 }
 
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
 div.main {
 	width: 900px;
 	margin: 0 auto;
 }
 
 div.content {
-	background-color: #B2C2E0;
-	color: #F3F6FC;
+	background-color: #F4F7FE;
+	color: #405274;
 	padding: 20px;
+	text-shadow: 1px 1px 0 #FFFFFF;
 
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -24,4 +33,104 @@ div.content {
 	-webkit-box-shadow: 0px 1px 1px #7C95C2;
 	box-shadow: 0px 1px 1px #7C95C2;
 
+	margin: 4px;
+}
+
+ul.menu {
+	list-style: none;
+	padding: 0;
+	margin-top: 20px;
+}
+
+ul.menu li {
+	margin: 0;
+	padding: 0;
+	float: left;
+	margin-bottom: 5px;
+}
+
+ul.menu li a {
+	display: inline-block;
+	padding: 5px;
+	margin: 4px;
+
+	background-color: #D5DEF0;
+
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+
+	-moz-box-shadow: 0px 1px 1px #343E51;
+	-webkit-box-shadow: 0px 1px 1px #343E51;
+	box-shadow: 0px 1px 1px #343E51;
+
+	text-decoration: none;
+	color: #343E51;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #FFFFFF;
+
+}
+
+ul.menu li a:hover {
+	background-color: #C6501B;
+	color: #FFFFFF;
+	text-shadow: none;
+	border:0;
+}
+
+div.description {
+	clear: both;
+	margin: 15px 4px 15px 4px;
+	text-align: center;
+	background-color: #D4E0F5;
+	padding: 15px;
+	text-decoration: none;
+	color: #343E51;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #FFFFFF;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+a {
+	text-decoration: none;
+	color: #1A3F83;
+}
+
+a:hover {
+	border-bottom: 1px dashed #623D2C;
+	color: #623D2C;
+}
+
+img.logo {
+	margin-left: 4px;
+	margin-top: 20px;
+}
+
+div.content h1 {
+	color: #C6501B;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+div.bluescreen {
+	font-family: "Courier New", monospace;
+	background-color: blue;
+	padding: 30px;
+	text-shadow: none;
+	font-size: 19px;
+	color: #FFFFFF;
+}
+
+div.bluescreen div.title {
+	text-align: center;
+	color: blue;
+}
+
+div.bluescreen div.title span {
+	background-color: #FFFFFF;
+	display: inline-block;
+	padding: 2px;
 }
