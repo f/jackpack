@@ -9,10 +9,12 @@
 	{
 		this.view = new Jack.View();
 	};
-	App.Controller.Index.prototype = $.extend(Jack.Controller, {
+	App.Controller.Index.prototype = Jack.extend(Jack.Controller, {
 
 		indexAction : function(params)
 		{
+			alert('index action run');
+			//alert(Jack.Registry.get('App.Layout'));
 			this.view.assign({id: params.id});
 			this.view.render('test', function(data) {
 

@@ -13,7 +13,7 @@
 	 *
 	 * Singleton
 	 */
-	App.Bootstrap = $.extend(Jack.Bootstrap, {
+	App.Bootstrap = Jack.extend(Jack.Bootstrap, {
 
 		/**
 		 * Initializing...
@@ -21,6 +21,9 @@
 		init: function()
 		{
 			this.setupRoutes();
+			this.setupLayout();
+
+			this.router.listen();
 		},
 
 		/**
@@ -29,8 +32,16 @@
 		setupRoutes: function()
 		{
 			this.router = new Jack.Router;
-			this.router.addRoute('/fatih/(?<id>[0-9]+)', 'App.Controller.Index', 'index');
-			this.router.listen();
+			this.router.addRoute('/(index|home)?', 'App.Controller.Index', 'index');
+			this.router.addRoute('/error', 'App.Controller.Error', 'index');
+
+			this.router.addRoute('#DEFAULT#', 'App.Controller.Index', 'index');
+			this.router.addRoute('#NOT_FOUND#', 'App.Controller.Error', 'index');
+		},
+
+		setupLayout: function()
+		{
+			Jack.Registry.set('App.Layout', $('div.main'));
 		}
 	});
 

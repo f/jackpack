@@ -36,25 +36,42 @@
 			}
 		},
 
-		dispatch : function (hash) {
+		run: function(callback, parameters)
+		{
+			if (typeof callback != 'object')
+				return false;
 
-			if (hash == null)
-				return;
+			var controller = Jack.newInstance(callback['controller']);
+			if (typeof controller[callback['method'] + 'Action'] != 'function')
+				return false;
+
+			controller[callback['method'] + 'Action'](parameters||{});
+			return true;
+		},
+
+		dispatch : function (hash) {
 
 			for (var route in this.routes) {
 
-				var callback = this.routes[route];
-				var controller = Jack.getInstance(callback['controller'], true);
-
-				if (typeof controller[callback['method'] + 'Action'] != 'function')
-					continue;
-
 				var regex = XRegExp('^#' + this.options.prefix + route + '$', 'ui');
 
-				var matches = regex.exec(hash);
-				if (matches) {
-					controller[callback['method'] + 'Action'](matches);
-					break;
+				if (regex.test(hash)) {
+					this.run(this.routes[route], regex.exec(hash));
+					return;
+				}
+			}
+
+			//if hash is null or empty then it is default, if not, it is a 404 page.
+			if (_([null, '']).indexOf($.trim(hash)) > -1)
+			{
+				if (_(this.routes).chain().keys().indexOf('#DEFAULT#').value() > -1)
+				{
+					this.run(this.routes['#DEFAULT#']);
+				}
+			} else {
+				if (_(this.routes).chain().keys().indexOf('#NOT_FOUND#').value() > -1)
+				{
+					this.run(this.routes['#NOT_FOUND#'], {code: 404});
 				}
 			}
 		}

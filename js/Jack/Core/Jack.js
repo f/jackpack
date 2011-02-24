@@ -6,6 +6,24 @@ try {
 	//Creating library namespace object
 	Jack = {
 
+		Registry: {
+
+			set : function(key, value)
+			{
+				this[key] = value;
+			},
+
+			get : function(key)
+			{
+				return this[key];
+			}
+		},
+
+		extend: function(parent, proto)
+		{
+			return $.extend(proto, parent);
+		},
+
 		/**
 		 * An alias to load classes from Autoloader.
 		 *
@@ -49,6 +67,11 @@ try {
 						return eval('new '+class_name);
 					break;
 			}
+		},
+
+		newInstance: function(class_name)
+		{
+			return this.getInstance(class_name, true);
 		},
 
 		/**
