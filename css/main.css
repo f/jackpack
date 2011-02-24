@@ -115,6 +115,12 @@ div.content h1 {
 	margin: 0;
 }
 
+div.footer {
+	margin: 4px;
+	margin-top: 8px;
+	color: #ff9933;
+}
+
 div.bluescreen {
 	font-family: "Courier New", monospace;
 	background-color: blue;
