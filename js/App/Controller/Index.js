@@ -14,19 +14,8 @@
 
 		indexAction : function(params)
 		{
-			/*Jack.use('App.Model.User');
-
-			var user = new App.Model.User;
-			var view = this.view;
-			user.name = 'fatih';
-			user.surname = 'akin';
-			user.sendServer('test.php', {cmd: 'add'}, function(data) {
-				data = view.renderString(data);
-				alert(data);
-			});*/
-
 			var self = this;
-			this.view.renderServer('test.php', {adi:'fatih'}, function(data){
+			this.view.render('index', function(data){
 				self.layout.html(data);
 			});
 		}
