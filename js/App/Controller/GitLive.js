@@ -15,14 +15,21 @@
 
 		indexAction : function(params) {
 
-			var commits = Jack.newInstance('App.Model.GitCommit');
-
-			console.log(commits.Mapper.getAll());
-
 			var self = this;
-			this.view.render('index', function(data) {
-				self.layout.html(data);
+			var commits = Jack.newInstance('App.Model.GitCommit');
+			var commitArray = [];
+
+			commits.Mapper.onComplete(function() {
+				self.view.assign({commits: commitArray});
+				self.view.render('gitlive', function(data) {
+					self.layout.html(data);
+				});
 			});
+
+			commits.Mapper.getAll(function(i, data){
+				commitArray.push(data);
+			});
+
 		}
 
 	});

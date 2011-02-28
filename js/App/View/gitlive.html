@@ -1,4 +1,13 @@
 <h1>Latest Git Commits</h1>
-<script type="text/javascript" src='http://gitlive.com/githublive.min.js'></script>
-<script type="text/javascript">var GithubPush = {num_old:5,nodes:['fkadeveloper/jackpack']}</script>
-<div id='commits'></div>
+<div>
+	<ul>
+	<% _(commits).each(function(commit){ %>
+		<li>
+			<span class="committer"><%= commit.committer %></span>
+			<span class="message"><%= commit.message %></span>
+			<span class="date"><%= commit.committed_date %></span>
+			<a class="url" href="<%= commit.url %>">[Go]</a>
+		</li>
+	<% }); %>
+	</ul>
+</div>

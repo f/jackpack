@@ -14,27 +14,35 @@
 
 		Mapper : {
 
-			getAll : function()
+			result : [],
+
+			getAll : function(callback)
 			{
-				var result = [];
-				$.getJSON('http://github.com/api/v2/json/commits/list/fkadeveloper/jackpack/master?page=1', null, function(response) {
+				var self = this;
+				$.getJSON('http://github.com/api/v2/json/commits/list/fkadeveloper/jackpack/master?page=1&callback=?', function(response) {
 
 					response = response||{commits:[]};
+
 					var _commit;
-					for (var commit in response.commits)
+					for (var index in response.commits)
 					{
+						var commit = response.commits[index];
 						_commit = Jack.newInstance('App.Model.GitCommit');
 						_commit.committer = commit.committer.name;
 						_commit.url = commit.url;
 						_commit.message = commit.message;
 						_commit.committed_date = commit.committed_date;
-						result.push(_commit);
+						callback(index, _commit);
 					}
+					self.oncomplete();
 
 				});
-				return result;
-			}
+			},
 
+			onComplete : function(callback)
+			{
+				this.oncomplete = callback;
+			}
 		}
 
 	});
