@@ -1,12 +1,12 @@
 <h1>Latest Git Commits</h1>
 <div>
-	<ul>
+	<ul class="git_commits">
 	<% _(commits).each(function(commit){ %>
 		<li>
-			<span class="committer"><%= commit.committer %></span>
-			<span class="message"><%= commit.message %></span>
+			<b><q><span class="message"><%= commit.message %></span></q></b> by
+			<span class="committer"><%= commit.committer %></span> on
 			<span class="date"><%= commit.committed_date %></span>
-			<a class="url" href="<%= commit.url %>">[Go]</a>
+			<a class="url" href="http://github.com<%= commit.url %>">[Go to details.]</a>
 		</li>
 	<% }); %>
 	</ul>

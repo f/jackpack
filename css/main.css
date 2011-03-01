@@ -152,3 +152,15 @@ div.commits ul li {
 	margin: 0;
 	padding: 0;
 }
+
+ul.git_commits {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.git_commits li {
+	padding: 10px;
+	margin: 3px;
+	position: relative;
+}
