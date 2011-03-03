@@ -82,6 +82,10 @@ try {
 		go: function(location)
 		{
 			window.location.hash = App.Bootstrap.router.options.prefix+location;
+		},
+
+		Util : {
+
 		}
 
 	};

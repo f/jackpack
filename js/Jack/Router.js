@@ -7,9 +7,16 @@
 			prefix: '!'
 		};
 	};
+	Jack.Router.DEFAULT = '#DEFAULT#';
+	Jack.Router.ERROR = '#ERROR#';
 	Jack.Router.prototype = {
 
-		addRoute : function (route, controller, callback) {
+		addRoute : function (route, realpath) {
+			realpath = _(realpath.split('.')).compact();
+
+			var controller = realpath.splice(0,realpath.length-1).join('.');
+			var callback = realpath.pop();
+
 			this.routes[route] = {'controller': controller, 'method': callback};
 		},
 
@@ -64,14 +71,14 @@
 			//if hash is null or empty then it is default, if not, it is a 404 page.
 			if (_([null, '']).indexOf($.trim(hash)) > -1)
 			{
-				if (_(this.routes).chain().keys().indexOf('#DEFAULT#').value() > -1)
+				if (_(this.routes).chain().keys().indexOf(Jack.Router.DEFAULT).value() > -1)
 				{
-					this.run(this.routes['#DEFAULT#']);
+					this.run(this.routes[Jack.Router.DEFAULT]);
 				}
 			} else {
-				if (_(this.routes).chain().keys().indexOf('#NOT_FOUND#').value() > -1)
+				if (_(this.routes).chain().keys().indexOf(Jack.Router.ERROR).value() > -1)
 				{
-					this.run(this.routes['#NOT_FOUND#'], {code: 404});
+					this.run(this.routes[Jack.Router.ERROR], {code: 404});
 				}
 			}
 		}

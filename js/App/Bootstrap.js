@@ -20,9 +20,11 @@
 		 */
 		init: function()
 		{
+			this._init();
 			this.setupRoutes();
 			this.setupLayout();
 
+			//when everything is ready, lets route.
 			this.router.listen();
 		},
 
@@ -32,20 +34,22 @@
 		setupRoutes: function()
 		{
 			this.router = new Jack.Router;
-			this.router.addRoute('/(index|home)?', 'App.Controller.Index', 'index');
-			this.router.addRoute('/live', 'App.Controller.GitLive', 'index');
+			this.router.addRoute('/(index|home)?', 'App.Controller.Index.index');
+			this.router.addRoute('/live', 'App.Controller.GitLive.index');
 
-			this.router.addRoute('/error/(?<code>[0-9]+)', 'App.Controller.Error', 'index');
-			this.router.addRoute('#DEFAULT#', 'App.Controller.Index', 'index');
-			this.router.addRoute('#NOT_FOUND#', 'App.Controller.Error', 'index');
+			this.router.addRoute('/error/(?<code>[0-9]+)', 'App.Controller.Error.index');
+			this.router.addRoute(Jack.Router.DEFAULT, 'App.Controller.Index.index');
+			this.router.addRoute(Jack.Router.ERROR, 'App.Controller.Error.index');
 		},
 
 		setupLayout: function()
 		{
 			var layout = $('div.content');
-			layout.ajaxStart(function() {
+			/*layout.ajaxStart(function() {
 				$(this).html('Loading...');
-			});
+			});*/
+
+			Jack.getInstance('Jack.Util.Ajax').overloadDocumentWrite();
 
 			Jack.Registry.set('App.Layout', layout);
 		}
