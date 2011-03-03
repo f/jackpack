@@ -5,7 +5,8 @@
 	 */
 	Jack.use(
 		'Jack.Bootstrap',
-		'Jack.Router'
+		'Jack.Router',
+		'Jack.Util.Ajax'
 	);
 
 	/**
@@ -49,7 +50,11 @@
 				$(this).html('Loading...');
 			});*/
 
-			Jack.getInstance('Jack.Util.Ajax').overloadDocumentWrite();
+			//handle document.write
+			Jack.Util.Ajax.overloadDocumentWrite();
+			//set default container as layout.
+			Jack.Util.Ajax.setDocumentWriteContainer(layout);
+
 
 			Jack.Registry.set('App.Layout', layout);
 		}
