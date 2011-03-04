@@ -19,6 +19,16 @@
 			getAll : function(callback)
 			{
 				var self = this;
+				if (this.result.length > 0)
+				{
+					for (var index in this.result) {
+						callback(index, this.result[index]);
+					}
+					self.oncomplete();
+					return;
+				}
+
+
 				$.getJSON('http://github.com/api/v2/json/commits/list/fkadeveloper/jackpack/master?page=1&callback=?', function(response) {
 
 					response = response||{commits:[]};
@@ -33,6 +43,7 @@
 						_commit.message = commit.message;
 						_commit.committed_date = commit.committed_date;
 						callback(index, _commit);
+						self.result.push(_commit);
 					}
 					self.oncomplete();
 
