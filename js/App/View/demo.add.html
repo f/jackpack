@@ -1,0 +1,28 @@
+<p>
+	As you can see, location is changed to "/demo/add" from "/demo", you can execute another MVC's via router.
+	And you can do what you want to. You don't have to replace all the layout, and as you can see you can add
+	some effects to view part.
+</p>
+<form method="post" action="">
+	<table>
+		<tr>
+			<td>Name:</td>
+			<td><input name="name" type="text" /></td>
+		</tr>
+		<tr>
+			<td>Surname:</td>
+			<td><input name="surname" type="text" /></td>
+		</tr>
+		<tr>
+			<td>Phone:</td>
+			<td><input name="phone" type="text" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button type="button" onclick="App.Controller.Demo.add($(this).closest('form').serializeArray());">Add</button></td>
+		</tr>
+	</table>
+</form>
+<p>
+	<b>Please add some person, and lets see the DOM storage.</b>
+</p>

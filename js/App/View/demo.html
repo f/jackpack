@@ -1,0 +1,51 @@
+<h1>Phonebook Demo</h1>
+<p>
+	This is a very simple Phonebook demo, runs with DOM Data Storage. It means, if you reload DOM, all data will be lost.
+	With Jack, you can use all storage methods like
+	<ul>
+		<li>Server-side DB via Ajax</li>
+		<li>Rest API Web Services</li>
+		<li>DOM</li>
+		<li>Local storage</li>
+		<li>Open Database</li>
+		<li>etc..</li>
+	</ul>
+	You are too free about how you use it.
+
+	<b>Press Add button please</b>
+</p>
+<div>
+	<button onclick="Jack.go('/demo/add')">Add</button>
+	<div id="actions"></div>
+	<p>
+		Here is the list of the phones.
+		<% if (people.length == 0) { %>
+		<b>But there is no person right now :(</b>
+		<% } else { %>
+		<p>
+			As you can see, there are persons below. You can delete them using the delete button, and they will be removed
+			from DOM storage.
+		</p>
+		<% } %>
+	</p>
+	<table id="list">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Surname</th>
+				<th>Phone</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% _(people).each(function(person) { %>
+			<tr>
+				<td><%= person.name %></td>
+				<td><%= person.surname %></td>
+				<td><%= person.phone %></td>
+				<td><button type="button" onclick="Jack.go('/demo/delete/<%= person.phone %>')">Delete</button></td>
+			</tr>
+			<% }); %>
+		</tbody>
+	</table>
+</div>

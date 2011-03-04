@@ -39,6 +39,10 @@
 			this.router = new Jack.Router;
 			this.router.addRoute('/(index|home)?', 'App.Controller.Index.index');
 			this.router.addRoute('/live', 'App.Controller.GitLive.index');
+			this.router.addRoute('/demo', 'App.Controller.Demo.index');
+			this.router.addRoute('/demo/add', 'App.Controller.Demo.add');
+			this.router.addRoute('/demo/edit/(?<id>[0-9]+)', 'App.Controller.Demo.edit');
+			this.router.addRoute('/demo/delete/(?<id>[0-9]+)', 'App.Controller.Demo.delete');
 
 			this.router.addRoute('/error/(?<code>[0-9]+)', 'App.Controller.Error.index');
 			this.router.addRoute(Jack.Router.DEFAULT, 'App.Controller.Index.index');
