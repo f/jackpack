@@ -6,6 +6,12 @@
 	};
 	//static
 	Jack.View.templateCache = {};
+	Jack.View.basePath = Jack.getBasePath() + 'App/View/'; //default base path.
+	Jack.View.setBasePath = function(directory) {
+
+		Jack.View.basePath = directory.replace(/\/+$/g, '');
+
+	};
 	Jack.View.prototype = {
 
 		assign: function(hash)
@@ -23,7 +29,8 @@
 				return;
 			}
 
-			$.get(Jack.Autoloader.getBasePath()+'App/View/'+view+'.html', null, function(data) {
+
+			$.get(Jack.View.basePath+'/'+view+'.html', null, function(data) {
 				Jack.View.templateCache[view] = data;
 				onsuccess(_.template(data, self.vars));
 			});

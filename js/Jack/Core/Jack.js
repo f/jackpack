@@ -84,6 +84,12 @@ try {
 			window.location.hash = App.Bootstrap.router.options.prefix+location;
 		},
 
+		//alias
+		getBasePath : function()
+		{
+			return Jack.Autoloader.getBasePath();
+		},
+
 		Util : {
 
 		}

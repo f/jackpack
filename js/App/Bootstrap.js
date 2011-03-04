@@ -5,6 +5,7 @@
 	 */
 	Jack.use(
 		'Jack.Bootstrap',
+		'Jack.View',
 		'Jack.Router',
 		'Jack.Util.Ajax'
 	);
@@ -23,6 +24,7 @@
 		{
 			this._init();
 			this.setupRoutes();
+			this.setupView();
 			this.setupLayout();
 
 			//when everything is ready, lets route.
@@ -41,6 +43,11 @@
 			this.router.addRoute('/error/(?<code>[0-9]+)', 'App.Controller.Error.index');
 			this.router.addRoute(Jack.Router.DEFAULT, 'App.Controller.Index.index');
 			this.router.addRoute(Jack.Router.ERROR, 'App.Controller.Error.index');
+		},
+
+		setupView : function()
+		{
+			Jack.View.setBasePath(Jack.getBasePath() + 'App/View');
 		},
 
 		setupLayout: function()
