@@ -119,8 +119,9 @@ div.content h1 {
 div.footer {
 	margin: 4px;
 	margin-top: 8px;
-	color: #ff9933;
+	color: #6666ff;
 	text-align:center;
+	font-size: smaller;
 }
 
 div.bluescreen {
