@@ -1,0 +1,1 @@
+# jAck: jQuery Application Coding Kit
