@@ -1,0 +1,4 @@
+#/usr/bin/sh
+
+echo 'Compiling required JavaScripts and generating Jack.min.js ...';
+cat ./Vendor/xregexp-min.js ./Vendor/underscore.js ./Vendor/jquery.js ./Jack.js ../Autoloader.js > ./Jack.min.js && java -jar ./yuicompressor.jar -o ./Jack.min.js ./Jack.min.js
