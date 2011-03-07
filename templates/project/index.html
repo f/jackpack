@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title>PROJECT with Jack</title>
+	</head>
+	<body>
+		<div id="jack-status">
+			Jack is not loaded right now. If you see this text for a long time, it means Jack is not
+			working. Please recreate project or report it as a bug.
+		</div>
+	</body>
+	<!-- Loading base libraries -->
+	<script type="text/javascript" src="js/Jack/Core/Vendor/xregexp-min.js"></script>
+	<script type="text/javascript" src="js/Jack/Core/Vendor/underscore.js"></script>
+	<script type="text/javascript" src="js/Jack/Core/Vendor/jquery.js"></script>
+
+	<!-- Loading Jack libraries -->
+	<script type="text/javascript" src="js/Jack/Core/Jack.js"></script>
+	<script type="text/javascript" src="js/Jack/Autoloader.js"></script>
+	<script type="text/javascript">
+		/**
+		 * Application start on DOM load.
+		 */
+		(function($) {
+			$(document).ready(function() {
+				try {
+					//Create boostrap instance and initialize.
+					Jack.Autoloader.setBasePath('js');
+					Jack.getInstance('PROJECT.Bootstrap').init();
+				} catch (e) {
+					//Log to console on error
+					console.log('An error occured while starting app: ' + e.message);
+				}
+			});
+		})(jQuery);
+	</script>
+</html>

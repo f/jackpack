@@ -1,5 +1,13 @@
 (function($){
 
+	//Creating app namespace object
+	App = {
+		Model : {},
+		View : {},
+		Controller : {}
+	};
+	window.App = App;
+
 	/**
 	 * Loading required classes.
 	 */

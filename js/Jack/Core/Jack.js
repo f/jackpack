@@ -96,16 +96,8 @@ try {
 
 	};
 
-	//Creating app namespace object
-	App = {
-		Model : {},
-		View : {},
-		Controller : {}
-	};
-
 	//Applying Jack into window.
 	window.Jack = Jack;
-	window.App = App;
 
 } catch (e) {
 	console.log('An error occured while running application: [' + e.code + '] : ' + e.message);
