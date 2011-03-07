@@ -1,4 +1,3 @@
-//http://github.com/api/v2/json/commits/list/fkadeveloper/jackpack/master
 (function($) {
 
 	Jack.use(
