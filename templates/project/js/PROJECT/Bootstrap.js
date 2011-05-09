@@ -1,13 +1,13 @@
 (function($){
 
 	//Creating application namespace object
-	PROJECT = {
+	@PROJECT@ = {
 		Model : {},
 		View : {},
 		Controller : {}
 	};
 
-	window.PROJECT = PROJECT;
+	window.@PROJECT@ = @PROJECT@;
 
 	Jack.use(
 		'Jack.Bootstrap',
@@ -16,7 +16,7 @@
 		'Jack.Util.Ajax'
 	);
 
-	PROJECT.Bootstrap = Jack.extend(Jack.Bootstrap, {
+	@PROJECT@.Bootstrap = Jack.extend(Jack.Bootstrap, {
 
 		init: function()
 		{
@@ -41,7 +41,7 @@
 
 		setupView : function()
 		{
-			Jack.View.setBasePath(Jack.getBasePath() + 'PROJECT/View');
+			Jack.View.setBasePath(Jack.getBasePath() + '@PROJECT@/View');
 		},
 
 		setupLayout: function()
@@ -53,7 +53,7 @@
 			//set default container as layout.
 			Jack.Util.Ajax.setDocumentWriteContainer(layout);
 
-			Jack.Registry.set('PROJECT.Layout', layout);
+			Jack.Registry.set('@PROJECT@.Layout', layout);
 		}
 	});
 

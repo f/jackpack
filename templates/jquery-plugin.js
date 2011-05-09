@@ -4,7 +4,7 @@
 		'Jack.Plugin'
 	);
 
-	Jack.Plugin.register.jQuery('PLUGIN', function(elements) {
+	Jack.Plugin.register.jQuery('@PLUGIN@', function(elements) {
 
 		alert(this.length + ' elements found.');
 

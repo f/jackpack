@@ -4,7 +4,7 @@
 		'Jack.Plugin'
 	);
 
-	Jack.Plugin.register.underscore('PLUGIN', function() {
+	Jack.Plugin.register.underscore('@PLUGIN@', function() {
 
 		//TODO: implement underscore JS Plugin
 

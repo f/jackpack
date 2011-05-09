@@ -5,12 +5,12 @@
 		'Jack.View'
 	);
 
-	PROJECT.Controller.Index = function()
+	@PROJECT@.Controller.Index = function()
 	{
 		this.view = new Jack.View();
-		this.layout = Jack.Registry.get('PROJECT.Layout');
+		this.layout = Jack.Registry.get('@PROJECT@.Layout');
 	};
-	PROJECT.Controller.Index.prototype = Jack.extend(Jack.Controller, {
+	@PROJECT@.Controller.Index.prototype = Jack.extend(Jack.Controller, {
 
 		indexAction : function()
 		{

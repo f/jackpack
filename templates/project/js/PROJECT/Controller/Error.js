@@ -5,11 +5,11 @@
 		'Jack.View'
 	);
 
-	PROJECT.Controller.Error = function() {
+	@PROJECT@.Controller.Error = function() {
 		this.view = new Jack.View();
-		this.layout = Jack.Registry.get('PROJECT.Layout');
+		this.layout = Jack.Registry.get('@PROJECT@.Layout');
 	};
-	PROJECT.Controller.Error.prototype = Jack.extend(Jack.Controller, {
+	@PROJECT@.Controller.Error.prototype = Jack.extend(Jack.Controller, {
 
 		indexAction : function(params)
 		{
