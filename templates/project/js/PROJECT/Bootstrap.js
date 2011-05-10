@@ -32,11 +32,11 @@
 		setupRoutes: function()
 		{
 			this.router = new Jack.Router;
-			this.router.addRoute('/(index|home)?',      'PROJECT.Controller.Index.index');
+			this.router.addRoute('/(index|home)?',      '@PROJECT@.Controller.Index.index');
 
 			//Setting error and default views.
-			this.router.addRoute(Jack.Router.DEFAULT,   'PROJECT.Controller.Index.index');
-			this.router.addRoute(Jack.Router.ERROR,     'PROJECT.Controller.Error.index');
+			this.router.addRoute(Jack.Router.DEFAULT,   '@PROJECT@.Controller.Index.index');
+			this.router.addRoute(Jack.Router.ERROR,     '@PROJECT@.Controller.Error.index');
 		},
 
 		setupView : function()
