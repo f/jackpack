@@ -10,3 +10,4 @@ python jack-project.py --model model_name
 python jack-project.py --view view_name
 python jack-project.py --jquery jquery_plugin_name
 python jack-project.py --underscore underscore_plugin_name
+
