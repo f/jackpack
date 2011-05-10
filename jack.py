@@ -31,6 +31,8 @@ class JackPack:
         open("%s/Controller/Index.js" % self.project_name,"w").write(urllib2.urlopen("https://github.com/fkadeveloper/jackpack/raw/master/templates/project/js/PROJECT/Controller/Index.js").read().replace("@PROJECT@",self.project_name))
         open("%s/View/error.html" % self.project_name,"w").write(urllib2.urlopen("https://github.com/fkadeveloper/jackpack/raw/master/templates/project/js/PROJECT/View/error.html").read())
         open("%s/View/index.html" % self.project_name,"w").write(urllib2.urlopen("https://github.com/fkadeveloper/jackpack/raw/master/templates/project/js/PROJECT/View/index.html").read())
+        open("%s/index.html" % self.project_name,"w").write(urllib2.urlopen("https://github.com/fkadeveloper/jackpack/raw/master/templates/project/index.html").read().replace("@PROJECT",self.project_name))
+        
         self.download_jack()
         self.download_jack_project()    
  
