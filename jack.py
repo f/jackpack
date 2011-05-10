@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-import os,urllib2
+import os,urllib2,argparse
 
 class JackPack:
     def __init__(self,base_url,jack_url,project_name):
@@ -34,6 +34,8 @@ class JackPack:
         self.download_jack()
         self.download_jack_project()    
  
-    
-a = JackPack("https://github.com/fkadeveloper/jackpack/raw/template/js/Jack.tar","https://github.com/fkadeveloper/jackpack/raw/master/jack-project.py","Deneme_Project")
+parser = argparse.ArgumentParser(description='Create models,controllers,views,plugins...')
+parser.add_argument('-p',help='Create Project')
+arg = parser.parse_args()
+a = JackPack("https://github.com/fkadeveloper/jackpack/raw/template/js/Jack.tar","https://github.com/fkadeveloper/jackpack/raw/master/jack-project.py",arg.p)
 a.create_project()
