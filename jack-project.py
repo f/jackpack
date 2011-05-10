@@ -26,7 +26,7 @@ class JackProject:
             self.download = self._download.replace("@PLUGIN@",self.file_name)
             self.download_to = "Plugins"
         if obj == "underscore-plugin":
-            self.download = urllib2.urlopen("https://github.com/fkadeveloper/jackpack/raw/master/templates/underscore-plugin").read()
+            self.download = urllib2.urlopen("https://github.com/fkadeveloper/jackpack/raw/master/templates/underscore-plugin.js").read()
             self.download = self._download.replace("@PLUGIN@",self.file_name)
             self.download_to = "Plugins"
             
