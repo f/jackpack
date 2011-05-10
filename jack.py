@@ -13,6 +13,7 @@ class JackPack:
         jack_file = urllib2.urlopen(self.base_url).read()
         j = open("Jack.tar","w").write(jack_file)
         os.system("tar xf Jack.tar")
+        os.system("rm Jack.tar")
          
     def download_jack_project(self):
         jack_project = urllib2.urlopen(self.jack_url).read().replace("@PROJECTNAME@","'%s'" % self.project_name)
