@@ -1,7 +1,5 @@
 # Jack: Javascript Application Coding Kit
 
-[![Clone jackpack in Koding](http://kbutton.org/clone.png?v1380115109655)](http://kbutton.org/f/jackpack)
-
 How I learned to stop worrying and love the Javascript
 
 # Using jack.py
